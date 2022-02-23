@@ -1,0 +1,58 @@
+import telebot
+import random
+import time 
+
+token = 'YOUR TOKEN'
+bot = telebot.TeleBot(token)
+
+keyboard = telebot.types.ReplyKeyboardMarkup(True)
+keyboard.row('/smile')
+keyboard.row('/text')
+keyboard.row('/pizda')
+
+def send(id,text):
+    bot.send_message(id,text,reply_markup = keyboard)
+
+@bot.message_handler(commands = ['start'])
+def answer(message):
+    send(message.chat.id, 'жопа')
+
+@bot.message_handler(commands = ['pizda'])
+def oziuda(message):
+    das = 0
+    sad = "{0.first_name}, @Katana_katanA_1"
+    while (das!=9):
+        #das+=1
+        send(message.chat.id, sad)
+        time.sleep(0.3)
+
+@bot.message_handler(commands = ['text'])
+def text(message):
+    sda=0
+    msa='dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddvvvddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddvvvvdddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddvvvddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddvvvdddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddvvvvdddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd'
+    while (sda!=6):
+        #sda+=1
+        send(message.chat.id,msa)
+        time.sleep(1)
+@bot.message_handler(commands = ['smile'])
+def smile(message):
+    fa=0
+    sn = '😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃'
+    while (fa!=6):
+        #fa+=1
+        send(message.chat.id, sn)
+        time.sleep(1)
+@bot.message_handler(content_types = ['text'])
+def main(message):
+    id = message.chat.id
+    msg = message.text
+
+    if msg == 'пр':
+        send(id,'df')
+    if msg =='df':
+        send(id,'пр')
+    if msg == 'аа':
+        send(id, 'нуда')
+    else:
+        send(id,"че")
+bot.polling(none_stop = True)
